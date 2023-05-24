@@ -49,7 +49,7 @@ const Main: React.FC<Props> = () => {
               }}
               className={style["item"]}
             >
-              <div className="inline-flex w-full items-center gap-2">
+              <div className="inline-flex w-full items-center">
                 <div className={style["icon"]}>
                   <FormOutlined className="text-white" />
                 </div>
