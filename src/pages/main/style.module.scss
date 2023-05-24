@@ -1,0 +1,33 @@
+.container{
+  @apply p-4;
+  @import "@styles/scrollbar";
+}
+
+.list{
+  @apply w-80 max-h-[600px] overflow-y-auto pr-2;
+  
+
+  .item {
+    @apply flex flex-col w-full gap-1 text-left px-2 py-2 rounded-md relative overflow-hidden;
+    @apply bg-gray-50 hover:bg-slate-500 hover:text-white duration-300;
+
+    .icon{
+      @apply flex justify-center items-center w-0;
+      font-size: 0;
+    }
+
+    .icon > span {
+      line-height: 0 !important;
+    }
+  }
+
+  .item:hover{
+    :global(.ant-tag), :global(.ant-typography){
+      @apply duration-300 text-white #{!important};
+    }
+
+    .icon{
+      @apply transition-all w-auto text-base;
+    }
+  }
+}

@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Suspense } from "react";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "@states/store";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { mainRoutes } from "./routes/main";
+import "./styles/global.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={null}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter>
+            <Routes>
+              {mainRoutes.map((r, i) => {
+                const Element = r.element;
+                return <Route key={i} path={r.path} element={<Element />} />;
+              })}
+            </Routes>
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
+    </Suspense>
   );
 }
 

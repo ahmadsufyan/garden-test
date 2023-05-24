@@ -1,0 +1,20 @@
+*::-webkit-scrollbar {
+  height: 6px;
+  width: 20px;
+  margin-left: 14px !important;
+}
+*::-webkit-scrollbar-thumb {
+  border-right: 12px solid rgba(0, 0, 0, 0);
+  border-top: 4px solid rgba(0, 0, 0, 0);
+  border-bottom: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  @apply bg-gray-600 #{!important};
+}
+* {
+  scrollbar-color: rgba(0, 0, 0, 0.55) transparent;
+  scrollbar-width: thin;
+}
+.fp-scroll-mac .fp-overflow::-webkit-scrollbar{
+  width: 0px !important;
+  display: hidden;
+}

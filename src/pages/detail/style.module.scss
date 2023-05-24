@@ -1,0 +1,15 @@
+.container{
+  @apply p-4;
+}
+
+.form{
+  @apply w-80 max-h-[600px] overflow-y-auto;
+
+  .item{
+    @apply my-2 #{!important};
+  }
+
+  :global(.ant-input-number){
+    @apply w-full;
+  }
+}
